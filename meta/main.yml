@@ -1,0 +1,20 @@
+---
+
+galaxy_info:
+  role_name: nsswitch
+  author: Christian Krause
+  description: 'Name Service Switch'
+  company: German Centre for Integrative Biodiversity Research (iDiv)
+  license: MIT
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: ArchLinux
+    - name: EL
+      versions:
+        - 7
+
+  galaxy_tags:
+    - nsswitch
+
+...

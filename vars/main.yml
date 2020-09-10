@@ -1,0 +1,9 @@
+---
+
+__nsswitch_template:
+  files:
+    - '{{ ansible_os_family | lower }}-nsswitch.conf.j2'
+  paths:
+    - templates
+
+...
