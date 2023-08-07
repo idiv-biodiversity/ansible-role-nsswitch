@@ -59,7 +59,7 @@ Add to `requirements.yml`:
 ```yml
 ---
 
-- src: idiv-biodiversity.nsswitch
+- src: idiv_biodiversity.nsswitch
 
 ...
 ```
@@ -81,7 +81,7 @@ Write a top-level playbook:
   hosts: linux
 
   roles:
-    - role: idiv-biodiversity.nsswitch
+    - role: idiv_biodiversity.nsswitch
       tags:
         - nsswitch
 
@@ -97,7 +97,7 @@ Define the role dependency in `meta/main.yml`:
 
 dependencies:
 
-  - role: idiv-biodiversity.nsswitch
+  - role: idiv_biodiversity.nsswitch
     tags:
       - nsswitch
 

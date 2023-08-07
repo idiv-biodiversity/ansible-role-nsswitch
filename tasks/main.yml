@@ -1,7 +1,7 @@
 ---
 
 - name: deploy nsswitch.conf
-  template:
+  ansible.builtin.template:
     src: '{{ lookup("first_found", __nsswitch_template) }}'
     dest: /etc/nsswitch.conf
     owner: root
