@@ -18,10 +18,6 @@ galaxy_info:
       versions:
         - all
 
-    - name: EL
-      versions:
-        - '7'
-
   galaxy_tags:
     - nsswitch
 
