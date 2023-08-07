@@ -4,17 +4,22 @@
 {% if nsswitch_passwd is defined %}
 passwd: {{ nsswitch_passwd | join(' ') }}
 {% else %}
-passwd: files mymachines systemd
+passwd: files systemd
 {% endif %}
 {% if nsswitch_group is defined %}
 group: {{ nsswitch_group | join(' ') }}
 {% else %}
-group: files mymachines systemd
+group: files [SUCCESS=merge] systemd
 {% endif %}
 {% if nsswitch_shadow is defined %}
 shadow: {{ nsswitch_shadow | join(' ') }}
 {% else %}
-shadow: files
+shadow: files systemd
+{% endif %}
+{% if nsswitch_gshadow is defined %}
+gshadow: {{ nsswitch_gshadow | join(' ') }}
+{% else %}
+gshadow: files systemd
 {% endif %}
 
 {% if nsswitch_publickey is defined %}
@@ -26,7 +31,7 @@ publickey: files
 {% if nsswitch_hosts is defined %}
 hosts: {{ nsswitch_hosts | join(' ') }}
 {% else %}
-hosts: files mymachines myhostname resolve [!UNAVAIL=return] dns
+hosts: mymachines resolve [!UNAVAIL=return] files myhostname dns
 {% endif %}
 {% if nsswitch_networks is defined %}
 networks: {{ nsswitch_networks | join(' ') }}
