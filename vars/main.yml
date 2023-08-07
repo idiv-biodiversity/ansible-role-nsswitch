@@ -1,8 +1,39 @@
 ---
 
+# -----------------------------------------------------------------------------
+# distro / os handles
+# -----------------------------------------------------------------------------
+
+__nsswitch_distro: >-
+  {{ ansible_distribution | lower }}
+
+__nsswitch_os: >-
+  {{ ansible_os_family | lower }}
+
+__nsswitch_distro_version: >-
+  {{ __nsswitch_distro }}_{{ ansible_distribution_major_version }}
+
+__nsswitch_os_version: >-
+  {{ __nsswitch_os }}_{{ ansible_distribution_major_version }}
+
+# -----------------------------------------------------------------------------
+# first found snippets
+# -----------------------------------------------------------------------------
+
+__nsswitch_first_found:
+  - '{{ __nsswitch_distro_version }}'
+  - '{{ __nsswitch_os_version }}'
+  - '{{ __nsswitch_distro }}'
+  - '{{ __nsswitch_os }}'
+
 __nsswitch_template:
-  files:
-    - '{{ ansible_os_family | lower }}-nsswitch.conf.j2'
+  files: >-
+    {{
+      __nsswitch_first_found |
+        map('regex_replace', '^', 'nsswitch_') |
+        map('regex_replace', '$', '.conf.j2') |
+        list
+    }}
   paths:
     - templates
 
