@@ -1,0 +1,55 @@
+---
+
+argument_specs:
+  main:
+    options:
+
+      nsswitch_ethers:
+        type: list
+        elements: str
+
+      nsswitch_group:
+        type: list
+        elements: str
+
+      nsswitch_gshadow:
+        type: list
+        elements: str
+
+      nsswitch_hosts:
+        type: list
+        elements: str
+
+      nsswitch_netgroup:
+        type: list
+        elements: str
+
+      nsswitch_networks:
+        type: list
+        elements: str
+
+      nsswitch_passwd:
+        type: list
+        elements: str
+
+      nsswitch_protocols:
+        type: list
+        elements: str
+
+      nsswitch_publickey:
+        type: list
+        elements: str
+
+      nsswitch_rpc:
+        type: list
+        elements: str
+
+      nsswitch_services:
+        type: list
+        elements: str
+
+      nsswitch_shadow:
+        type: list
+        elements: str
+
+...
